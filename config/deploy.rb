@@ -11,9 +11,9 @@ set :pty, true
 set :keep_releases, 3
 
 set :linked_files, fetch(:linked_files, []).push(
-  'config/unicorn.rb'
-  # 'config/application.yml',
-  # 'config/sidekiq.yml'
+  'config/unicorn.rb',
+  'config/database.yml',
+  'config/secrets.yml'
 )
 
 set :linked_dirs, fetch(:linked_dirs, []).push(

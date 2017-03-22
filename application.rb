@@ -4,6 +4,7 @@ require 'telegram/bot'
 require './lib/message_responder'
 require './lib/app_configurator'
 require 'ostruct'
+require 'json'
 
 class Application < Sinatra::Base
   configure do
@@ -12,7 +13,7 @@ class Application < Sinatra::Base
     set :config, AppConfigurator.new
     settings.config.configure
 
-    token = setting.config.get_token
+    token = settings.config.get_token
     set :bot, Telegram::Bot::Client.new(token)
   end
 
@@ -21,10 +22,10 @@ class Application < Sinatra::Base
   end
 
   post '/' do
-    message = OpenStruct.new(params['message'])
-    options = { bot: settings.bot, message: message }
-    if message
-      logger.debug "@#{message.from.username}: #{message.text}"
+    update = JSON.parse(request.body.read, object_class: OpenStruc)
+    options = { bot: settings.bot, message: update.message }
+    if update.message
+      logger.debug "@#{update.message.from.username}: #{update.message.text}"
       MessageResponder.new(options).respond
     end
   end
