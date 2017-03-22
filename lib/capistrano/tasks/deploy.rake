@@ -17,19 +17,18 @@ namespace :deploy do
       execute "mkdir -p #{shared_path}/config"
       #upload! "shared/application.#{fetch :stage}.yml", "#{shared_path}/config/application.yml"
       #upload! "shared/puma.#{fetch :stage}.rb", "#{shared_path}/config/puma.rb"
-      upload! "shared/unicorn.#{fetch :stage}.rb", "#{shared_path}/config/unicorn.rb"
+      upload! "shared/unicorn.rb", "#{shared_path}/config/unicorn.rb"
       #upload! "shared/sidekiq.yml", "#{shared_path}/config/sidekiq.yml"
     end
   end
 
-  after :publishing, 'app:restart'
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
-  end
+  # after :publishing, 'app:restart'
+  # after :restart, :clear_cache do
+  #   on roles(:web), in: :groups, limit: 3, wait: 10 do
+  #     # Here we can do anything such as:
+  #     # within release_path do
+  #     #   execute :rake, 'cache:clear'
+  #     # end
+  #   end
+  # end
 end
