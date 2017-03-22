@@ -22,7 +22,7 @@ class Application < Sinatra::Base
   end
 
   post '/' do
-    update = JSON.parse(request.body.read, object_class: OpenStruc)
+    update = JSON.parse(request.body.read, object_class: OpenStruct)
     options = { bot: settings.bot, message: update.message }
     if update.message
       logger.debug "@#{update.message.from.username}: #{update.message.text}"
