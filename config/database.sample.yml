@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  database: bot_development
+  encoding: unicode
+  pool: 5
+  timeout: 5000

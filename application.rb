@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
+
 require 'telegram/bot'
 require './lib/message_responder'
 require './lib/app_configurator'
@@ -8,13 +9,12 @@ require 'json'
 
 class Application < Sinatra::Base
   configure do
-    enable :logging
-
     set :config, AppConfigurator.new
-    settings.config.configure
 
-    token = settings.config.get_token
-    set :bot, Telegram::Bot::Client.new(token)
+    enable :logging
+    set :logger, config.logger
+
+    set :bot, Telegram::Bot::Client.new(settings.config.token)
   end
 
   get '/' do
@@ -30,3 +30,5 @@ class Application < Sinatra::Base
     end
   end
 end
+
+require_relative 'models/init'

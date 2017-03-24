@@ -17,11 +17,7 @@
 /tmp
 /coverage
 /shared
-/config/application.yml
-/public/system
-/public/uploads
-/public/picture
+/config/database.yml
+/config/secrets.yml
 tags
 .*~
-dump.rdb
-/ssl/

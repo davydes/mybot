@@ -1,10 +1,3 @@
-require './models/user'
-require './models/subscribe'
-require './lib/message_sender'
-require './lib/photo_sender'
-require './lib/video_sender'
-require './lib/services/motion_service'
-
 class MessageResponder
   attr_reader :message
   attr_reader :bot
@@ -86,6 +79,12 @@ class MessageResponder
 
   def answer_with_video(filename)
     VideoSender.new(bot: bot, chat: message.chat, video: filename).send
+  end
+
+  def answer_with(*objects)
+    objects.each do |object|
+      object.first
+    end
   end
 
   def result_message(condition)

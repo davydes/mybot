@@ -19,18 +19,9 @@ set :linked_files, fetch(:linked_files, []).push(
 set :linked_dirs, fetch(:linked_dirs, []).push(
   'log',
   'tmp/pids',
-  'tmp/sockets',
-  'tmp/cache',
-  'vendor/bundle'
+  'tmp/sockets'
 )
-
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
-
-# RVM
-################################################################################
 
 set :rvm_type, :user
 set :rvm_ruby_version, '2.3.1'
 set :rvm_custom_path, '~/.rvm'
-
-################################################################################
