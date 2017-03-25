@@ -7,7 +7,7 @@ module Motion
     def initialize(options = {})
       @url    = options[:url] || 'http://localhost:8080'
       @thread = options[:thread] || 0
-      @logger = AppConfigurator.new.get_logger
+      @logger = Application.config.logger
     end
 
     def snapshot

@@ -9,7 +9,7 @@ namespace :deploy do
       end
     end
   end
-  before "deploy", "deploy:check_revision"
+  #before "deploy", "deploy:check_revision"
 
   desc "Upload shared configs"
   task :upload do

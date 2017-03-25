@@ -1,3 +1,4 @@
+set :branch, 'feature/refactoring'
 set :rails_env, 'production'
 set :rake_env,  'production'
 set :user, 'deploy'
