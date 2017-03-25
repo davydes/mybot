@@ -1,4 +1,4 @@
-class PhotoSender
+class PhotoSender < BaseSender
   attr_reader :photo
 
   def initialize(options)

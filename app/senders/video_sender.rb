@@ -1,4 +1,4 @@
-class VideoSender
+class VideoSender < BaseSender
   attr_reader :video
 
   def initialize(options)
