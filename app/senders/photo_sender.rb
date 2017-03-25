@@ -2,7 +2,7 @@ class PhotoSender
   attr_reader :photo
 
   def initialize(options)
-    super(oprions)
+    super(options)
     @photo = options[:photo]
   end
 
