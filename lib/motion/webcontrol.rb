@@ -1,4 +1,3 @@
-require './lib/app_configurator'
 require 'net/http'
 
 module Motion

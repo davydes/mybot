@@ -1,4 +1,3 @@
-require 'bundler/setup'
-require './application'
+require_relative 'config/environment'
 
 run Application

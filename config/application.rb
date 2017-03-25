@@ -1,15 +1,20 @@
+require_relative 'boot'
+
 require 'sinatra'
 require 'sinatra/reloader' if development?
-
 require 'telegram/bot'
-require './lib/message_responder'
-require './lib/app_configurator'
 require 'ostruct'
 require 'json'
+require_relative 'configurator'
+
+Bundler.require(:default, :development)
+
+require_all 'app'
+require_all 'lib'
 
 class Application < Sinatra::Base
   configure do
-    set :config, AppConfigurator.new
+    set :config, Configurator.new
 
     enable :logging
     set :logger, config.logger
@@ -30,5 +35,3 @@ class Application < Sinatra::Base
     end
   end
 end
-
-require_relative 'models/init'
