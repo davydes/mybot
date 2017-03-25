@@ -81,12 +81,6 @@ class MessageResponder
     VideoSender.new(bot: bot, chat: message.chat, video: filename).send
   end
 
-  def answer_with(*objects)
-    objects.each do |object|
-      object.first
-    end
-  end
-
   def result_message(condition)
     answer_with_message(condition ? 'Success' : 'Fail')
   end

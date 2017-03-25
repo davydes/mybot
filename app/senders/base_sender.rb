@@ -8,7 +8,7 @@ class BaseSender
     @bot = options[:bot]
     @chat = options[:chat]
     @answers = options[:answers]
-    @logger = options[:logger]
+    @logger = Application.config.logger
   end
 
   def send
