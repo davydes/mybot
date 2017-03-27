@@ -7,9 +7,11 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'sinatra-activerecord'
 gem 'activerecord'
-gem 'unicorn'
 gem 'telegram-bot-ruby'
 gem 'i18n'
+
+gem 'unicorn'
+gem 'sidekiq'
 
 group :development do
   gem 'pry'

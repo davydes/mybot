@@ -39,6 +39,7 @@ GEM
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     concurrent-ruby (1.0.5)
+    connection_pool (2.2.1)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     descendants_tracker (0.0.4)
@@ -71,6 +72,7 @@ GEM
       rack (>= 1.0)
     raindrops (0.17.0)
     rake (12.0.0)
+    redis (3.3.3)
     require_all (1.4.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
@@ -86,6 +88,11 @@ GEM
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
     safe_yaml (1.0.4)
+    sidekiq (4.2.9)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      rack-protection (>= 1.5.0)
+      redis (~> 3.2, >= 3.2.1)
     sinatra (1.4.8)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -138,6 +145,7 @@ DEPENDENCIES
   rake
   require_all
   rspec
+  sidekiq
   sinatra
   sinatra-activerecord
   sinatra-contrib
