@@ -1,9 +1,9 @@
 lock '3.7.2'
 
-set :application, 'mybot'
+set :application, 'bot'
 set :repo_url, 'git@github.com:davydes/mybot.git'
 set :branch, 'master'
-set :deploy_to, "/var/www/apps/bot"
+set :deploy_to, "/var/www/apps/#{fetch :application}"
 set :scm, :git
 set :format, :airbrussh
 set :format_options, command_output: true, log_file: 'log/capistrano.log', color: :auto, truncate: :auto
