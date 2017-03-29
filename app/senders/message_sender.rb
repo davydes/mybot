@@ -8,7 +8,7 @@ class MessageSender < BaseSender
 
   def send
     bot.api.send_message(message)
-    logger.debug "sending '#{text}' to #{chat.username}"
+    logger.debug "sending '#{text}' to #{chat_id}"
   end
 
   protected

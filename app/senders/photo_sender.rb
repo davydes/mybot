@@ -8,7 +8,7 @@ class PhotoSender < BaseSender
 
   def send
     bot.api.send_photo(message)
-    logger.debug "sending '#{photo}' to #{chat.username}"
+    logger.debug "sending '#{photo}' to #{chat_id}"
   end
 
   protected

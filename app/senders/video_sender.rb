@@ -8,7 +8,7 @@ class VideoSender < BaseSender
 
   def send
     bot.api.send_video(message)
-    logger.debug "sending '#{video}' to #{chat.username}"
+    logger.debug "sending '#{video}' to #{chat_id}"
   end
 
   protected
