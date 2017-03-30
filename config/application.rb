@@ -28,7 +28,7 @@ class Application < Sinatra::Base
 
   post '/motion/hook' do
     hook = JSON.parse(request.body.read, object_class: OpenStruct)
-    MotionHookResponder.new(hook).respond
+    MotionHookResponder.new(hook: hook).respond
   end
 
   post '/' do
