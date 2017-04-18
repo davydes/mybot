@@ -6,13 +6,15 @@ class MotionService
     @webcontrol = Motion::Webcontrol.new
   end
 
-  def snapshot
-    @files1     = Motion::Files.new(target_dir: '/var/lib/motion/1')
-    @files2     = Motion::Files.new(target_dir: '/var/lib/motion/2')
+  def snapshot(options = {})
+    cameras = options[:cameras] || [1, 2]
+    @files = cameras.map do |cam|
+      Motion::Files.new(target_dir: "/var/lib/motion/#{cam}")
+    end
 
     if @webcontrol.snapshot
       sleep(0.5)
-      [@files1, @files2].map(&:last_snapshot).compact
+      @files.map(&:last_snapshot).compact
     else
       nil
     end
