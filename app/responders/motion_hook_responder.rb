@@ -13,7 +13,7 @@ class MotionHookResponder
     Subscribe.all.each do |subscribe|
       #MessageSender.new(bot: bot, chat_id: subscribe.cid, text: hook.message).send
       photos.each do |photo|
-        PhotoSender.new(bot: bot, chat: message.chat, photo: photo).send
+        PhotoSender.new(bot: bot, chat_id: subscribe.cid, photo: photo).send
       end
     end
   end
