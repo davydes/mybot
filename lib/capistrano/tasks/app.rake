@@ -3,7 +3,7 @@ namespace :app do
   task :stop do
     on roles(:web) do
       sudo "systemctl stop web-apps-unicorn@#{fetch :application}"
-      #sudo "systemctl stop web-apps-sidekiq@#{fetch :application}"
+      sudo "systemctl stop web-apps-sidekiq@#{fetch :application}"
     end
   end
 
@@ -11,7 +11,7 @@ namespace :app do
   task :start do
     on roles(:web) do
       sudo "systemctl start web-apps-unicorn@#{fetch :application}"
-      #sudo "systemctl start web-apps-sidekiq@#{fetch :application}"
+      sudo "systemctl start web-apps-sidekiq@#{fetch :application}"
     end
   end
 
