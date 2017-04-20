@@ -11,10 +11,11 @@ class MotionHookResponder
     photos = MotionService.new.snapshot(cameras: [hook.camera])
 
     Subscribe.all.each do |subscribe|
-      #MessageSender.new(bot: bot, chat_id: subscribe.cid, text: hook.message).send
       photos.each do |photo|
         PhotoSender.new(bot: bot, chat_id: subscribe.cid, photo: photo).send
       end
     end
+
+    "Sended to #{Subscribe.all.count} subscribers"
   end
 end
